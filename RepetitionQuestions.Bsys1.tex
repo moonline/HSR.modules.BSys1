@@ -1,0 +1,221 @@
+%Pakete;
+%A4, Report, 12pt
+\documentclass[ngerman,a4paper,12pt]{scrreprt}
+\usepackage[a4paper, right=20mm, left=20mm,top=20mm, bottom=30mm, marginparsep=5mm, marginparwidth=5mm, headheight=7mm, headsep=15mm,footskip=15mm]{geometry}
+
+%Papierausrichtungen
+\usepackage{pdflscape}
+\usepackage{lscape}
+
+%Deutsche Umlaute, Schriftart, Deutsche Bezeichnungen
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+%quellcode
+\usepackage{listings}
+
+%tabellen
+\usepackage{tabularx}
+
+%listen und aufzählungen
+\usepackage{paralist}
+
+%farben
+\usepackage[svgnames,table,hyperref]{xcolor}
+
+%symbole
+\usepackage{latexsym,textcomp}
+
+%font
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+%Abkürzungsverzeichnisse
+\usepackage[printonlyused]{acronym}
+
+%Bilder
+\usepackage{graphicx} %Bilder
+\usepackage{float}	  %"Floating" Objects, Bilder, Tabellen...
+\usepackage[space]{grffile} %Leerzechen Problem bei includegraphics
+\usepackage{wallpaper} %Seitenhintergrund setzen
+\usepackage{transparent} %Transparenz
+
+%for
+\usepackage{forloop}
+\usepackage{ifthen}
+
+%Dokumenteigenschaften
+\title{Repetitionsfragen Bsys1}
+\author{Tobias Blaser}
+\date{\today{}, Rapperswil}
+
+
+%Kopf- /Fusszeile
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\pagestyle{fancy}
+	\fancyhf{} %alle Kopf- und Fußzeilenfelder bereinigen
+	\renewcommand{\headrulewidth}{0pt} %obere Trennlinie
+	\fancyfoot[L]{Seite \thepage/\pageref{LastPage}} %Fusszeile mitte
+	\fancyfoot[R]{\today{}} %Fusszeile rechts
+	\renewcommand{\footrulewidth}{0.4pt} %untere Trennlinie
+
+%Kopf-/ Fusszeile auf chapter page
+\fancypagestyle{plain} {
+	\fancyhf{} %alle Kopf- und Fußzeilenfelder bereinigen
+	\renewcommand{\headrulewidth}{0pt} %obere Trennlinie
+	\fancyfoot[L]{Seite \thepage/\pageref{LastPage}} %Fusszeile mitte
+	\fancyfoot[R]{\today{}} %Fusszeile rechts
+	\renewcommand{\footrulewidth}{0.4pt} %untere Trennlinie
+}
+
+\usepackage{changepage}
+
+% Abkürzungen für Kapitel, Titel und Listen
+\input{../shortcuts}
+
+%links, verlinktes Inhaltsverzeichnis, PDF Inhaltsverzeichnis
+\usepackage[bookmarks=true,
+bookmarksopen=true,
+bookmarksnumbered=true,
+breaklinks=true,
+colorlinks=true,
+linkcolor=black,
+anchorcolor=black,
+citecolor=black,
+filecolor=black,
+menucolor=black,
+pagecolor=black,
+urlcolor=black
+]{hyperref} % Paket muss unbedingt als letzes eingebunden werden!
+
+\begin{document}
+
+% Inhaltsverzeichnis
+\tableofcontents
+\clearpage
+
+\ch{W1}
+\ol
+	\li
+\olS
+
+
+\ch{W2}
+\olR
+	\li
+\olS
+
+
+\ch{W3}
+\olR
+	\li
+\olS
+
+
+\ch{Systemprogrammierung}
+\olR
+	\item Was ist ein Systemdienstaufruf? Was wird dabei ausgeführt? Was ist die Systemprogrammierschnittstelle?
+	\item Wie sind man-pages aufgebaut? Welche Informationen enthalten sie?
+	\item Welche drei Typen von Systemdiensten gbt es? Was gibt es zu beachten bezüglich Antwortzeit? In welchem Fall ist eine Zeitüberwachung sinnvoll? Wie setzen Sie dies um?
+	\item Erklären Sie synchrone und asynchrone Systemdiensterbringung und deren Auswirkungen auf den Aufrufer.
+	\item Was sind Dienstparameter. Welche drei typischen Aufrufmuster gibt es? Machen Sie je ein Beispiel.
+	\item Was sind Systemdatentypen? Was sind opake Datentypen?
+	\item Nennen Sie drei Rückgabemöglichkeiten für Resultate von Sysemfunktionen.
+	\item Was sind opake Anwenderdaten?
+	\item Welche Möglichkeiten haben Sie, mit Fehler von Systemfunktionen umzugehen? Welche sind zu bevorzugen? Nennen Sie Vor-/ Nachteile.
+	\item Wie verwenden Sie die Systemprogrammierschnittstelle? Wie funktioniert der Systemaufruf intern?
+	\item Was sind Dateideskriptoren \& Handles. Was können Sie damit machen? Welche Vorteile bieten sie? Welche Probleme kann es insbesondere mit Namenseindeutigkeiten geben?
+	\item Welche 6 Punkte sollten bei der Programmierung unter Einsatz von Systamaufrufen berücksichtigt werden?
+	\item Was ist die Umgebungsvarablenliste?
+	\item Nennen Sie pro / contra der Ungarischen Notation.
+\olS
+
+
+\ch{Prozesse}
+\olR
+	\li Nennen Sie die vier Arten von parallelen Abläufen. Was bedeutet Hardware-Parallelität und was Software-Parallelität?
+	\li Erklären Sie den Unterschied zwischen Programm und Prozess.
+	\li Erklären Sie Raum- und Zeitmultiplex. Beschreiben Sie die Sicht eines Einzelnen Prozesses af Adressraum und Prozessor.
+	\li Was ist der Prozesskontext? Was Passiert bei einem Prozesswechsel mit dem Kontext?
+	\li Nennen Sie vier Ereignisse, die eine Prozesserzeugung auslösen können.
+	\li Erklären Sie, wie unter Unix und unter Windows neue Prozesse erzeugt werden, und wie Prozesse wieder terminiert werden. Nennen Sie den Hauptunterschied zwischen Windows und Unix bezüglich Prozessabhängigkeiten.
+	\li Was ist Prozesschaining? Welche Daten werden dabei übernommen?
+	\li Wie entsteht ein Zombieprozess? Wie können Sie dem entgegenwirken mittels Enkelprozessen?
+	\li Wie erhalten Sie unter Unix und Windows Informationen über den Status der Prozessterminierung?
+	\li Erklären Sie, was alles vererbt wird beim Forking, bzw. Create von Prozessen, gegenüber dem Chaining. 
+	\li 
+\olS
+
+
+\ch{Threads}
+\olR
+	\li Erklären Sie die Unterschiede zwischen Prozessen und Threads. Bei welchem Anwendungsfall sind Prozesse besser geeignet, bei welchem Threads?
+	\li Erklären Sie die vier Arten von Prozess- und Threadkombinationen die von Systeme unterstützt werden können. 
+	\li Welche Informationen sind Teil der Prozessumgebung und welche Informationen gehören zu einem Thread und sind entsprechend pro Thread vorhanden?
+	\li Nennen Sie zwei zentrale Vorteile von Threads gegenüber Prozessen und erklären Sie, was CPU-bound und I/O-Bound bedeutet.
+	\li Stellen Sie Multithreading unter Windows und unter Unix einander gegenüber.
+	\li Was sind UL-Threads, was KL-Threads? Erklären Sie die drei Zuordnungsvarianten 1:1, m:1 und m:n. Nennen Sie jeweils vor- und Nachteile.
+\olS
+
+
+\ch{CPU-Scheduling}
+\olR
+	\li Was bedeutet Quasiparallelität?
+	\li Erklären Sie das Prozess- und Thread Zusatandsmodell mit drei und mit vier Zuständen.
+	\li Was bedeutet verdrängend und nicht verdrängende Zuteilung? Nennen Sie Vor- und Nachteile.
+	\li Nennen Sie einige Anforderungen an das Scheduling.
+	\li Erklären Sie die folgenden Zuteilungsstrategien und Nennen Sie Vor-/Nachteile und allfällige Anwendungsgebiete:
+		\ul
+			\li FIFO-Strategie
+			\li SJF-Strategie
+			\li SRT-Strategie
+			\li RR-Strategie
+			\li ML-Strategie
+			\li MLF-Strategie
+		\ulE
+\olS
+
+
+\ch{Synchronisation von Prozessen und Threads}
+\olR
+	\li Was sind kritische Bereiche? Was sind Race Conditions?
+	\li Was ist das "lost update problem"?
+	\li Was ist "inconsisten read"?
+	\li Erklären Sie, wie ein Semaphor funktioniert. Welche beiden Typen von Semaphoren gibt es?
+	\li Was sind atomare Operationen?
+	\li Was ist "mutual exclusion" und wie funktioniert es?
+	\li Wie funktioniert "barrier synchronization"?
+	\li Erklären Sie das Problem der Prioritätsumkehrung und zwei mögliche Lösungen.	
+\olS
+
+
+\ch{Deadlocks}
+\olR
+	\li Erklären Sie, was ein Deadlock ist.
+	\li Was ist ein gemeinsames Betriebsmittel? Erklären Sie die beiden Arten von gemeinsamen Betriebsmittel.
+	\li Betrachten Sie die folgenden beiden Beispiele. Kann es zum Deadlock kommen? Wenn ja, listen Sie alle möglichen Ablaufmöglichkeiten auf, die zum Deadlock führen. Zeichnen SIe den Betriebsmittelfahrplan, bzw. einen Betriebsmittelgraphen für die Situation mit drei Prozessen.
+		\ul
+			\li Mit zwei Prozessen: \\
+			Prozess 1: P(r); P(s); V(r); V(s); \\
+			Prozess 1: P(s); P(r); V(r); V(s);
+			\li Mit drei Prozessen: \\
+			Prozess A: P(a);  P(b);  V(a);  V(b); \\
+			Prozess B:  P(b);   P(c);  V(b);  V(c); \\
+			Prozess C:  P(c);  P(a);  V(c);  V(a); 
+		\ulE 
+	\li Welche vier Bedingungen müssen erfüllt sein, damit ein Deadlock eintritt?
+	\li Welche vier Möglichkeiten haben Sie, um Deadlocks zu behaldeln? Nennen Sie jeweils Vor-, Nachteile, Vorgehen und Anwendungsmöglichkeiten. Die meisten dieser Möglichkeiten bieten sebst wieder mehrere Ansätze/Wege. Erklären Sie jede Methode und nennen Sie Vor-/Nachteile.
+	\li Erklären Sie detailierter wie die Reduzierung von Betriebsmittelgraphen funktioniert. In wechen Fällen können Sie reduzieren, in welchen Fällen nicht?
+	\li Warum können Sie keine automatische Deadlock-Erkennung durchführen, wenn nicht-lokale Ressourcen im Spiel sind?
+\olS
+
+
+
+
+
+
+
+\end{document}
